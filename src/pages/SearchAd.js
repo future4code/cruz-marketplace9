@@ -37,7 +37,7 @@ export default class SearchAd extends React.Component{
    //API
    getProducts = async ()=>{
       try{
-         res = await Axios.get('https://us-central1-labenu-apis.cloudfunctions.net/eloFourTwo/products')
+         const res = await Axios.get('https://us-central1-labenu-apis.cloudfunctions.net/eloFourTwo/products')
          this.setState({
             products: res.data.products
          })
@@ -50,7 +50,7 @@ export default class SearchAd extends React.Component{
    //Funções internas
    reciveTotalValue = () => {
       let totalValue = 0
-      for(let item of this.props.cartProducts){
+      for(let item of this.state.cartProducts){
           totalValue += item.price* item.amount
       }
       return totalValue
@@ -117,7 +117,7 @@ export default class SearchAd extends React.Component{
       let renderedProducts
 
       //se não existir nada no filtro então renderiza a partir de todos os produtos(this.state.products)
-      if(productsFilteredInFilter.length===0){
+      if(this.state.productsFiltered.length===0){
          renderedProducts = this.state.products.filter((product)=>{
             if(product.name.toLowerCase().includes(this.state.inputSearchProduct))return true
             else return false
@@ -134,7 +134,7 @@ export default class SearchAd extends React.Component{
       return(
          <ContainerProducts>
             {
-               this.state.renderedProducts.map((product)=>{
+               renderedProducts.map((product)=>{
                   return(
                      <CardProduct 
                         product = {this.product}
