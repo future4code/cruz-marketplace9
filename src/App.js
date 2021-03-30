@@ -1,7 +1,7 @@
 import React from 'react'
 import { AppContainer } from './components/AppContainer'
 
-function App {
+function App() {
 	return (
         <AppContainer />
 	)
