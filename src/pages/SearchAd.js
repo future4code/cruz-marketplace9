@@ -137,14 +137,7 @@ export default class SearchAd extends React.Component{
                this.state.renderedProducts.map((product)=>{
                   return(
                      <CardProduct 
-                        id = {product.id}
-                        name = {product.name}
-                        description = {product.description}
-                        photos = {product.photos}
-                        price = {product.price}
-                        category = {product.category}
-                        paymenthMethod = {product.paymenthMethod}
-                        onClickAddCart = {this.onClickAddCart}
+                        product = {this.product}
                      />
                   )
                })
