@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const CardContainer = styled.div`
+  width: 300px;
   border: 1px solid black;
   display: flex;
   flex-direction: column;

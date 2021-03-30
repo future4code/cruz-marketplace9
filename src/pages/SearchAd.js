@@ -1,10 +1,10 @@
 import Axios from "axios";
 import React from "react";
 import styled from 'styled-components'
-
-const CardProduct = styled.div`` //só para não dizer que não existe
+import CardProduct from '../components/CardProducts'
+import Cart from '../components/Cart'
 const Filter = styled.div`` //só para não dizer que não existe
-const Cart = styled.div`` //só para não dizer que não existe
+
 
 const ContainerAll = styled.div`
    height: 100vh;
@@ -67,7 +67,7 @@ export default class SearchAd extends React.Component{
       let newCartProducts
 
       //se o produto já existir no carrinho apenas aumenta a quantidde
-      for(let i=0; i<this.state.cartProducts; i++){
+      for(let i=0; i<this.state.cartProducts.length; i++){
          if(idProduct === this.state.cartProducts[i].id){
             newCartProducts = [...this.state.cartProducts]
             newCartProducts[i].amount++
@@ -79,10 +79,10 @@ export default class SearchAd extends React.Component{
       }
 
       //se o produto não existir no carrinho, adiciona ele no carrinho
-      for(let i=0; i<this.state.products; i++){
+      for(let i=0; i<this.state.products.length; i++){
          if(idProduct === this.state.products[i].id){
             newCartProducts = [...this.state.cartProducts, this.state.products[i]]
-            newCartProducts[i].amount = 1
+            newCartProducts[newCartProducts.length-1].amount = 1
             this.setState({
                cartProducts: newCartProducts
             })
@@ -131,13 +131,15 @@ export default class SearchAd extends React.Component{
          })
       }
 
+
       return(
          <ContainerProducts>
             {
                renderedProducts.map((product)=>{
                   return(
                      <CardProduct 
-                        product = {this.product}
+                        product = {product}
+                        onClickAddCart = {this.onClickAddCart}
                      />
                   )
                })
