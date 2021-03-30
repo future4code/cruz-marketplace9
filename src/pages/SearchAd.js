@@ -47,6 +47,15 @@ export default class SearchAd extends React.Component{
       }
    }
 
+   //Funções internas
+   reciveTotalValue = () => {
+      let totalValue = 0
+      for(let item of this.props.cartProducts){
+          totalValue += item.price* item.amount
+      }
+      return totalValue
+  }
+
    //Interação com usuário
    onChangeSearchProduct= (e)=>{
       this.setState({
@@ -146,18 +155,26 @@ export default class SearchAd extends React.Component{
 
    //renderização do carrinho
    renderCart = ()=>{
-      return this.state.cartProducts.map((product)=>{
-         return(
-            <Cart 
-            id = {product.id}
-            name = {product.name}
-            price = {product.price}
-            amount = {product.amount}
-            deleteCartProduct = {this.deleteCartProduct}
-            cartProducts = {this.state.cartProducts}
-            />
+      return (
+         <div>
+            <h3>Carrinho:</h3>
+            {
+               this.state.cartProducts.map((product)=>{
+                  return(
+                     <Cart 
+                     id = {product.id}
+                     name = {product.name}
+                     price = {product.price}
+                     amount = {product.amount}
+                     deleteCartProduct = {this.deleteCartProduct}
+                     cartProducts = {this.state.cartProducts}
+                     />
+                  )
+               })
+            }
+            <p>Valor total da compra: R${this.reciveTotalValue()},00</p>
+         </div>
          )
-      })
    }
 
    render(){
