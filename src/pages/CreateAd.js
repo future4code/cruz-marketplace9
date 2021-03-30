@@ -104,6 +104,9 @@ class CreateAd extends React.Component {
   handleInstallments = (e) => {
     this.setState({ inputInstallments: e.target.value });
   };
+  handleSearch = (e) => {
+    this.setState({inputSearchProduct: e.target.value})
+  };
 
   removeProduct = (productId) => {
       const newProducts =
@@ -164,10 +167,12 @@ class CreateAd extends React.Component {
             value={this.state.inputInstallments}
             onChange={this.handleInstallments}
           />
+          <button onClick={this.createProduct}>Criar produto</button>
         </DivInputs>
 
         <DivProducts>
           <h1>Meus produtos</h1>
+          <Input value={this.state.inputSearchProduct} onChange={this.handleSearch}></Input>
           {filteredList.map((product) => {
             return (<div>
               <p>{product.name}</p>
