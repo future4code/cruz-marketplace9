@@ -105,6 +105,18 @@ class CreateAd extends React.Component {
     this.setState({ inputInstallments: e.target.value });
   };
 
+  removeProduct = (productId) => {
+      const newProducts =
+      this.state.products.filter((product) => {
+          if(product.id === productId) {
+              return false 
+          } else {
+              return true
+          }
+      })
+      this.setState({products: newProducts})
+  }
+
   deleteProduct = (productId) => {
     axios
       .delete(
@@ -112,7 +124,7 @@ class CreateAd extends React.Component {
       )
       .then((res) => {
         alert("Esse produto foi deletado!");
-        this.getProducts();
+        this.removeProduct(productId)
       });
   };
 
