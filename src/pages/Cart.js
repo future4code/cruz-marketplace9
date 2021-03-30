@@ -7,25 +7,16 @@ export default class Cart extends React.Component {
 
 
 
-render (){
-    return (
-    
-    <div>
-    
-        
-            <p>{this.props.name}</p>
-            <p>{this.props.amount}x</p>
-            <button onClick={() => this.props.deleteCartProduct(this.props.id)}>
-                Remover item
-            </button>
-        
-
-    </div>
-        
-        
+    render (){
+        return (
+            <div>
+                <p>{this.props.name}</p>
+                <p>{this.props.amount}x</p>
+                <p>{this.props.price}</p>
+                <button onClick={() => this.props.deleteCartProduct(this.props.id)}>
+                    Remover item
+                </button>
+            </div>
         )
-        
-    
-}
-
+    }
 }

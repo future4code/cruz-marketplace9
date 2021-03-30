@@ -6,9 +6,6 @@ import ChoicePage from './pages/ChoicePage';
 import SearchAd from './pages/SearchAd';
 
 
-
-
-
 export default class App extends React.Component {
 	state={
 		page: 'ChoicePage'
