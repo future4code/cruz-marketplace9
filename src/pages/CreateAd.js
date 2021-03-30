@@ -128,21 +128,12 @@ class CreateAd extends React.Component {
       });
   };
 
+  filterProducts = () => {
+        return this.state.products.filter((product) => this.state.inputSearchProduct ? (product.name.toLowerCase()).includes(this.state.inputSearchProduct.toLowerCase()) : true)
+    }
+
   render() {
-    const listOfProducts = this.state.products.map((product) => (
-      <div>
-        <p>{product.name}</p>
-        <p>{product.description}</p>
-        <p>{product.price}</p>
-        <p>{product.paymentMethod}</p>
-        <p>{product.category}</p>
-        <p>{product.photos}</p>
-        <p>{product.installments}</p>
-        <button onClick={() => this.deleteProduct(product.id)}>
-          Apagar produto
-        </button>
-      </div>
-    ));
+    const filteredList = this.filterProducts()
 
     return (
       <DivContainer>
@@ -191,7 +182,14 @@ class CreateAd extends React.Component {
 
         <DivProducts>
           <h1>Meus produtos</h1>
-          {listOfProducts}
+          {filteredList.map((product) => {
+            return (<div>
+              <p>{product.name}</p>
+              <button onClick={() => this.deleteProduct(product.id)}>
+                Apagar produto
+              </button>
+            </div> ) 
+          })}
         </DivProducts>
       </DivContainer>
     );
