@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { AppContainer } from './components/AppContainer'
 import ChoicePage from './pages/ChoicePage';
 import SearchAd from './pages/SearchAd';
-
+import CreateAd from './pages/CreateAd'
 
 export default class App extends React.Component {
 	state={
@@ -22,7 +22,7 @@ export default class App extends React.Component {
 				return <SearchAd/>
 			case 'CreateAd':
 				return <CreateAd/>
-			case 'ChoicePAge':
+			case 'ChoicePage':
 				return <ChoicePage
 				onClickChangePage={this.onClickChangePage}
 				/>
