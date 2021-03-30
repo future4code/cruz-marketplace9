@@ -8,7 +8,7 @@ import CreateAd from './pages/CreateAd'
 
 export default class App extends React.Component {
 	state={
-		page: 'SearchAd'
+		page: 'ChoicePage'
 	}
 
 

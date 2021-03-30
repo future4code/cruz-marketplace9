@@ -139,45 +139,31 @@ class CreateAd extends React.Component {
       <DivContainer>
         <DivInputs>
           <label>Nome do produto:</label>
-          <Input value={this.state.inputName} onChange={this.handleName}>
-            {" "}
-          </Input>
+          <Input value={this.state.inputName} onChange={this.handleName}/>
           <label>Descrição do produto</label>
           <Input
             value={this.state.inputDescription}
             onChange={this.handleDescription}
-          >
-            {" "}
-          </Input>
+          />
           <label>Preço: </label>
-          <Input value={this.state.inputPrice} onChange={this.handlePrice}>
-            {" "}
-          </Input>
+          <Input value={this.state.inputPrice} onChange={this.handlePrice} />
           <label>Métodos de pagamento: </label>
           <Input
             value={this.state.inputPaymentMethod}
             onChange={this.handlePaymentMethod}
-          >
-            {" "}
-          </Input>
+          />
           <label>Categoria: </label>
           <Input
             value={this.state.inputCategory}
             onChange={this.handleCategory}
-          >
-            {" "}
-          </Input>
+          />
           <label>Fotos: </label>
-          <Input value={this.state.inputPhotos} onChange={this.handlePhotos}>
-            {" "}
-          </Input>
+          <Input value={this.state.inputPhotos} onChange={this.handlePhotos} />
           <label>Parcelas: </label>
           <Input
             value={this.state.inputInstallments}
             onChange={this.handleInstallments}
-          >
-            {" "}
-          </Input>
+          />
         </DivInputs>
 
         <DivProducts>
