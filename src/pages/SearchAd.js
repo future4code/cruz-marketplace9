@@ -154,6 +154,7 @@ export default class SearchAd extends React.Component{
             price = {product.price}
             amount = {product.amount}
             deleteCartProduct = {this.deleteCartProduct}
+            cartProducts = {this.state.cartProducts}
             />
          )
       })
