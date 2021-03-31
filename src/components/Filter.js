@@ -27,22 +27,35 @@ onChangeInputCategory = (event) => {
 }
 
 onClickFilter() {
-
-    const newProducts = [ {products: this.state.products} ]
-    this.props.filter(...newProducts)
+    if(this.state.inputCategory === 'Preço') {
+        let newProducts = this.state.products.filter((product) => {
+            if (product.price === this.state.inputValueMin && product.price === this.state.inputValueMax){
+                return true
+        })
+    } else if (this.state.inputCategory === 'Categoria') {
+        this.state.products.sort(products.category)
+    } else if (this.state.inputCategory === 'Nome') {
+        this.state.products.sort(products.name)
+    }
+    this.props.filter(newProducts)
 }
 
 render() {
-    const filteredProducts = products
-    .filter((product,index) => products.lastIndexOf(product) === index)
-    .sort((a,b) => a < b ? -1 : 1)
+    const filteredList = this.state.products.filter((item) => {
+        if ((item.price >= this.state.minValue || this.state.minValue === '') && 
+        (item.price <= this.state.maxValue || this.state.maxValue === '')) {
+            return true 
+        } else {
+            return false
+        }
+    })
 
     return (
     <div>
         <div>
         </div>
             <select onChange={inputCategory}>
-            <option value={filteredProducts}>Nome</option>
+            <option value={filteredList}>Nome</option>
             <option value={'Preço'}>Preço</option>
             <option value={'Categoria'}>Categoria</option>
             </select>
@@ -66,5 +79,3 @@ render() {
     </div>
     )
 }
-
-
