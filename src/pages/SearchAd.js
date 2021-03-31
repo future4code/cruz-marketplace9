@@ -3,25 +3,63 @@ import React from "react";
 import styled from 'styled-components'
 import CardProduct from '../components/CardProducts'
 import Cart from '../components/Cart'
-const Filter = styled.div`` //só para não dizer que não existe
+import {Header} from "../components/Estilization"
+import logo from "../img/logo.png"
 
+const Filter = styled.div`
+   width: 20%;
+   height: 100%;
+` //só para não dizer que não existe
 
 const ContainerAll = styled.div`
    height: 100vh;
    display: grid;
-   grid-template-rows: 70px 1fr;
+   grid-template-rows: 80px 1fr;
 `
-const Header = styled.div`
-   grid-row: 1/2;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-`
+
+const Input = styled.input`
+  margin: 10px 0px;
+  padding: 10px;
+  border-radius: 12px;
+  outline: 0;
+  border: none;
+  width: 50%;
+`;
+
 const ContainerSecondary = styled.div`
    grid-row: 2/3;
    display: flex;
 `
-const ContainerProducts = styled.div``
+const ContainerProducts = styled.div`
+   width: 60%;
+   display: flex;
+   justify-content: center;
+   flex-wrap: wrap;
+   gap: 12px;
+   height: 850px;
+   overflow: scroll;
+`
+
+const Imagem = styled.img`
+  width: 60px;
+  height: 60px;
+  margin-left: 12px;
+
+`
+const BotaoVoltar = styled.button`
+  margin-right: 12px;
+  padding: 6px;
+  border-radius: 12px;
+  background-color: #F83940;
+  border: none;
+  color: black;
+  width: 80px;
+  outline: 0;
+  :hover{
+ cursor: pointer; 
+}
+`
+
 export default class SearchAd extends React.Component{
    state={
       products: [],
@@ -175,11 +213,13 @@ export default class SearchAd extends React.Component{
    render(){
       return(
          <ContainerAll>
-            <Header>
-               <input value={this.state.inputSearchProduct}
-               placeholder='Name of product'
+            <Header> 
+           <Imagem src={logo}></Imagem>
+           <Input value={this.state.inputSearchProduct}
+               placeholder='Procurar por produto'
                onChange={this.onChangeSearchProduct}
                />
+          <BotaoVoltar onClick={() => this.props.onClickChangePage("ChoicePage")} > Voltar </BotaoVoltar>   
             </Header>
             <ContainerSecondary>
                <Filter 

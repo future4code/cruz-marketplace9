@@ -6,6 +6,11 @@ import ChoicePage from './pages/ChoicePage';
 import SearchAd from './pages/SearchAd';
 import CreateAd from './pages/CreateAd'
 
+const DivContainer = styled.div`
+	background: #E8EBF0;
+	width: 100vw;
+`
+
 export default class App extends React.Component {
 	state={
 		page: 'ChoicePage'
@@ -19,9 +24,11 @@ export default class App extends React.Component {
 	renderPage = () => {
 		switch(this.state.page){
 			case 'SearchAd':
-				return <SearchAd/>
+				return <SearchAd
+				onClickChangePage={this.onClickChangePage}/>
 			case 'CreateAd':
-				return <CreateAd/>
+				return <CreateAd
+				onClickChangePage={this.onClickChangePage}/>
 			case 'ChoicePage':
 				return <ChoicePage
 				onClickChangePage={this.onClickChangePage}
@@ -36,9 +43,9 @@ export default class App extends React.Component {
 
 	render(){
 		return(
-			<div>
+			<DivContainer>
 				{this.renderPage()}
-			</div>
+			</DivContainer>
 			)
 	}
 }
