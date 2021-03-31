@@ -9,6 +9,8 @@ import CreateAd from './pages/CreateAd'
 const DivContainer = styled.div`
 	background: #E8EBF0;
 	width: 100vw;
+	margin: 0;
+	padding: 0;
 `
 
 export default class App extends React.Component {

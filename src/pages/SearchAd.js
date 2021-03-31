@@ -5,11 +5,7 @@ import CardProduct from '../components/CardProducts'
 import Cart from '../components/Cart'
 import {Header} from "../components/Estilization"
 import logo from "../img/logo.png"
-
-const Filter = styled.div`
-   width: 20%;
-   height: 100%;
-` //só para não dizer que não existe
+import Filter from "../components/Filter"
 
 const ContainerAll = styled.div`
    height: 100vh;
@@ -33,7 +29,7 @@ const ContainerSecondary = styled.div`
 const ContainerProducts = styled.div`
    width: 60%;
    display: flex;
-   justify-content: center;
+   justify-content: space-evenly;
    flex-wrap: wrap;
    gap: 12px;
    height: 850px;
@@ -44,7 +40,9 @@ const Imagem = styled.img`
   width: 60px;
   height: 60px;
   margin-left: 12px;
-
+  :hover{
+ cursor: pointer; 
+}
 `
 const BotaoVoltar = styled.button`
   margin-right: 12px;
@@ -155,7 +153,7 @@ export default class SearchAd extends React.Component{
       let renderedProducts
 
       //se não existir nada no filtro então renderiza a partir de todos os produtos(this.state.products)
-      if(this.state.productsFiltered.length===0){
+      if(this.state.productsFiltered.length === 0){
          renderedProducts = this.state.products.filter((product)=>{
             if(product.name.toLowerCase().includes(this.state.inputSearchProduct))return true
             else return false
@@ -184,6 +182,7 @@ export default class SearchAd extends React.Component{
             }
          </ContainerProducts>
       )
+      
    }
 
    //renderização do carrinho
@@ -214,7 +213,7 @@ export default class SearchAd extends React.Component{
       return(
          <ContainerAll>
             <Header> 
-           <Imagem src={logo}></Imagem>
+           <Imagem  src={logo} onClick={() => this.props.onClickChangePage("ChoicePage")}/>
            <Input value={this.state.inputSearchProduct}
                placeholder='Procurar por produto'
                onChange={this.onChangeSearchProduct}
@@ -223,7 +222,7 @@ export default class SearchAd extends React.Component{
             </Header>
             <ContainerSecondary>
                <Filter 
-                  products = {this.state.products}
+                  products = {[...this.state.products]}
                   filter = {this.filter}
                />
                {this.renderProducts()}
