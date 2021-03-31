@@ -75,7 +75,9 @@ const Imagem = styled.img`
   width: 60px;
   height: 60px;
   margin-left: 12px;
-
+  :hover{
+ cursor: pointer; 
+}
 `
 const BotaoVoltar = styled.button`
   margin-right: 12px;
@@ -230,7 +232,7 @@ class CreateAd extends React.Component {
     return (
       <DivContainer>
         <Header> 
-           <Imagem src={logo}></Imagem>
+           <Imagem onClick={() => this.props.onClickChangePage("ChoicePage")} src={logo}></Imagem>
           <h1> Elo4 </h1>
           <BotaoVoltar onClick={() => this.props.onClickChangePage("ChoicePage")} > Voltar </BotaoVoltar>   
         </Header>

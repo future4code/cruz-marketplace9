@@ -1,5 +1,14 @@
 import React from 'react'
+import styled from "styled-components"
 
+const Input = styled.input`
+`
+const DivContainer = styled.div`
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+`
 export default class Filter extends React.Component {
 
 state = {
@@ -11,6 +20,7 @@ state = {
 
 componentDidMount() {
     this.setState({products: this.props.products})
+    console.log(this.props.products)
 }
 
 onChangeInputValueMin = (event) => {
@@ -25,21 +35,25 @@ onChangeInputCategory = (event) => {
     this.setState({inputCategory: event.target.value})
 }
 
-onClickFilter() {
+onClickFilter = () => {
+    let newProducts
     if(this.state.inputCategory === 'Preço') {
-        let newProducts = this.state.products.filter((product) => {
-            if (product.price === this.state.inputValueMin && product.price === this.state.inputValueMax){
+        newProducts = this.state.products.filter((product) => {
+            if (product.price >= this.state.inputValueMin && product.price <= this.state.inputValueMax){
                 return true
-        })
+        }})
     } else if (this.state.inputCategory === 'Categoria') {
-        this.state.products.sort(function(a,b) {
+        newProducts = [...this.state.products]
+        newProducts.sort(function(a,b) {
             return a.category < b.category ? -1 : a.category > b.category ? 1 : 0
-        })
+        }) 
     } else if (this.state.inputCategory === 'Nome') {
-        this.state.products.sort(function(a,b) {
+        newProducts = [...this.state.products]
+        newProducts.sort(function(a,b) {
             return a.name < b.name ? -1 : a.nome > b.nome ? 1 : 0
         })
     }
+    console.log(newProducts)
     this.props.filter(newProducts)
 }
 
@@ -54,11 +68,9 @@ render() {
     })
 
     return (
-    <div>
-        <div>
-        </div>
-            <select onChange={inputCategory}>
-            <option value={filteredList}>Nome</option>
+    <DivContainer>
+            <select onChange={this.onChangeInputCategory}>
+            <option value={"Nome"}>Nome</option>
             <option value={'Preço'}>Preço</option>
             <option value={'Categoria'}>Categoria</option>
             </select>
@@ -67,18 +79,19 @@ render() {
             type="number"
             min="0"
             value={this.state.inputValueMin}
-            onChange={onChangeInputValueMin}
+            onChange={this.onChangeInputValueMin}
             placeholder="Valor mínimo"
           />
           <span>-</span>
           <Input 
             type="number"
             min="0"
-            value={this.props.inputValueMax}
-            onChange={onChangeInputValueMax}
+            value={this.state.inputValueMax}
+            onChange={this.onChangeInputValueMax}
             placeholder="Valor máximo"
           />
-            <button onClick={onClickFilter()}>Filtrar</button>
-    </div>
+            <button onClick={this.onClickFilter}>Filtrar</button>
+    </DivContainer>
     )
+}
 }
