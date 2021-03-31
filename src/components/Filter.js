@@ -13,7 +13,6 @@ componentDidMount() {
     this.setState({products: this.props.products})
 }
 
-
 onChangeInputValueMin = (event) => {
     this.setState({inputValueMin: event.target.value})
 }
@@ -33,9 +32,13 @@ onClickFilter() {
                 return true
         })
     } else if (this.state.inputCategory === 'Categoria') {
-        this.state.products.sort(products.category)
+        this.state.products.sort(function(a,b) {
+            return a.category < b.category ? -1 : a.category > b.category ? 1 : 0
+        })
     } else if (this.state.inputCategory === 'Nome') {
-        this.state.products.sort(products.name)
+        this.state.products.sort(function(a,b) {
+            return a.name < b.name ? -1 : a.nome > b.nome ? 1 : 0
+        })
     }
     this.props.filter(newProducts)
 }
