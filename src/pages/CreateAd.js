@@ -1,6 +1,10 @@
 import axios from "axios";
 import React from "react";
 import styled from "styled-components";
+import {Header} from "../components/Estilization"
+import ChoicePage from "./ChoicePage"
+import logo from "../img/logo.png"
+import lixo from "../img/lixo.png"
 
 const DivContainer = styled.div`
   display: flex;
@@ -9,13 +13,98 @@ const DivContainer = styled.div`
   align-items: center;
 `;
 const DivInputs = styled.div`
-  border-bottom: 1px solid black;
+  display: flex;
+  flex-direction: column;
 `;
-const Input = styled.input``;
-const DivProducts = styled.div``;
+const Input = styled.input`
+  margin: 10px 0px;
+  padding: 10px;
+  border-radius: 12px;
+  outline: 0;
+  border: none;
+`;
+
+const TextArea = styled.textarea`
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 10px 0px;
+  padding: 10px;
+  border-radius: 12px;
+  outline: 0;
+  border: none;
+  height: 40px;
+`
+const DivProducts = styled.div`
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+
+`;
+
+const DivDelete = styled.div`
+display: flex;
+flex-direction: column;
+  max-height: 270px;
+  overflow: scroll;
+div{
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0px;
+}
+`
+
+const Select = styled.select`
+  margin: 10px 0px;
+  padding: 10px;
+  border-radius: 12px;
+  outline: 0;
+  border: none;
+`
+
+const Span = styled.span`
+`
+const Lixo = styled.img`
+  width: 20px;
+  height: 20px;
+:hover{
+ cursor: pointer; 
+}
+`
+
+const Imagem = styled.img`
+  width: 60px;
+  height: 60px;
+  margin-left: 12px;
+
+`
+const BotaoVoltar = styled.button`
+  margin-right: 12px;
+  padding: 6px;
+  border-radius: 12px;
+  background-color: #F83940;
+  border: none;
+  color: black;
+  width: 80px;
+  outline: 0;
+  :hover{
+ cursor: pointer; 
+}
+`
+
+const BotaoCriar = styled.button`
+  padding: 6px;
+  border-radius: 12px;
+  background-color: #F83940;
+  border: none;
+  color: black;
+:hover{
+ cursor: pointer; 
+}
+`
 
 class CreateAd extends React.Component {
   state = {
+
     inputName: "",
     inputDescription: "",
     inputPrice: "",
@@ -140,47 +229,59 @@ class CreateAd extends React.Component {
 
     return (
       <DivContainer>
+        <Header> 
+           <Imagem src={logo}></Imagem>
+          <h1> Elo4 </h1>
+          <BotaoVoltar onClick={() => this.props.onClickChangePage("ChoicePage")} > Voltar </BotaoVoltar>   
+        </Header>
         <DivInputs>
-          <label>Nome do produto:</label>
-          <Input value={this.state.inputName} onChange={this.handleName}/>
-          <label>Descrição do produto</label>
-          <Input
+          <Input placeholder={"Nome do produto"} value={this.state.inputName} onChange={this.handleName}/>
+          <TextArea
+            placeholder={"Descrição do produto"} 
             value={this.state.inputDescription}
             onChange={this.handleDescription}
           />
-          <label>Preço: </label>
-          <Input value={this.state.inputPrice} onChange={this.handlePrice} />
-          <label>Métodos de pagamento: </label>
+          <Input min="1" value={this.state.inputPrice} onChange={this.handlePrice}  placeholder={"Preço"} type={"number"}/>
+
+          <Select value={this.state.inputPaymentMethod} onChange={this.handlePaymentMethod}>
+          <option>Forma de pagamento</option>
+          <option>Boleto</option>
+          <option>Cartão de Crédito</option>
+          <option>Cartão de Débito</option>
+          <option>PIX</option>
+          </Select>
+
+          <Select value={this.state.inputCategory}
+            onChange={this.handleCategory}>
+            <option>Selecione a categoria do seu produto</option>  
+            <option>Roupa</option>
+            <option>Artesanato</option>
+            <option>Tricô</option>
+            <option>Decoração</option>
+            </Select>
+          <Input value={this.state.inputPhotos} onChange={this.handlePhotos} placeholder={"Fotos do produto"}/>
           <Input
-            value={this.state.inputPaymentMethod}
-            onChange={this.handlePaymentMethod}
-          />
-          <label>Categoria: </label>
-          <Input
-            value={this.state.inputCategory}
-            onChange={this.handleCategory}
-          />
-          <label>Fotos: </label>
-          <Input value={this.state.inputPhotos} onChange={this.handlePhotos} />
-          <label>Parcelas: </label>
-          <Input
+            min="1"
+            max="12"
+            type={"number"}
+            placeholder={"Parcelas"}
             value={this.state.inputInstallments}
             onChange={this.handleInstallments}
           />
-          <button onClick={this.createProduct}>Criar produto</button>
+          <BotaoCriar onClick={this.createProduct}>Criar produto</BotaoCriar>
         </DivInputs>
 
         <DivProducts>
           <h1>Meus produtos</h1>
-          <Input value={this.state.inputSearchProduct} onChange={this.handleSearch}></Input>
+          <Input value={this.state.inputSearchProduct} onChange={this.handleSearch} placeholder={"Procure por seu produto"}></Input>
+          <DivDelete>
           {filteredList.map((product) => {
             return (<div>
-              <p>{product.name}</p>
-              <button onClick={() => this.deleteProduct(product.id)}>
-                Apagar produto
-              </button>
+              <Span>{product.name}</Span>
+              <Lixo onClick={() => this.deleteProduct(product.id)} src={lixo}></Lixo>
             </div> ) 
           })}
+          </DivDelete>
         </DivProducts>
       </DivContainer>
     );
