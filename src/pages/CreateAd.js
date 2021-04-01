@@ -112,7 +112,7 @@ class CreateAd extends React.Component {
     inputPrice: "",
     inputPaymentMethod: "",
     inputCategory: "",
-    inputPhotos: [],
+    inputPhotos: "",
     inputInstallments: "",
     products: [],
     inputSearchProduct: "",
@@ -139,7 +139,7 @@ class CreateAd extends React.Component {
       price: this.state.inputPrice,
       paymentMethod: this.state.inputPaymentMethod,
       category: this.state.inputCategory,
-      photos: this.state.inputPhotos,
+      photos: this.state.inputPhotos.split(","),
       installments: this.state.inputInstallments,
     };
     axios
@@ -170,7 +170,7 @@ class CreateAd extends React.Component {
           inputInstallments: "",
         });
         alert("Ocorreu um erro! Estamos trabalhando para solucioná-lo!");
-        console.log(err);
+        console.log(err.response);
       });
   };
 
