@@ -157,7 +157,7 @@ class CreateAd extends React.Component {
           inputPhotos: "",
           inputInstallments: "",
         });
-        alert("Seu produto já foi anunciado!");
+        alert("Seu produto foi anunciado!");
       })
       .catch((err) => {
         this.setState({
