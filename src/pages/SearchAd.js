@@ -33,8 +33,10 @@ const ContainerProducts = styled.div`
    justify-content: space-evenly;
    flex-wrap: wrap;
    gap: 12px;
-   height: calc(100vh-90px);
+   height: calc(100vh - 90px);
    overflow: auto;
+   
+   
 `
 
 const Imagem = styled.img`
@@ -223,7 +225,7 @@ export default class SearchAd extends React.Component{
             </Header>
             <ContainerSecondary>
                <Filter 
-                  products = {[...this.state.products]}
+                  products = {this.state.products}
                   filter = {this.filter}
                />
                {this.renderProducts()}
