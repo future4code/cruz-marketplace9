@@ -36,15 +36,15 @@ const TextArea = styled.textarea`
 const DivProducts = styled.div`
   display:flex;
   flex-direction: column;
-  justify-content: center;
-
+  justify-content: flex-start;
+  height: max(calc(100vh - 545px), 350px);
 `;
 
 const DivDelete = styled.div`
 display: flex;
 flex-direction: column;
   max-height: 270px;
-  overflow: scroll;
+  overflow: auto;
 div{
   display:flex;
   justify-content: space-between;
@@ -122,6 +122,11 @@ class CreateAd extends React.Component {
     this.getProducts();
   };
 
+  createProductState =(body)=>{
+    const newProducts = [...this.state.products, body]
+    this.setState({products: newProducts})
+  }
+
   getProducts = () => {
     axios
       .get(
@@ -157,7 +162,8 @@ class CreateAd extends React.Component {
           inputPhotos: "",
           inputInstallments: "",
         });
-        alert("Seu produto já foi anunciado!");
+        this.createProductState(body)
+        alert("Seu produto foi anunciado!");
       })
       .catch((err) => {
         this.setState({
@@ -261,7 +267,7 @@ class CreateAd extends React.Component {
             <option>Tricô</option>
             <option>Decoração</option>
             </Select>
-          <Input value={this.state.inputPhotos} onChange={this.handlePhotos} placeholder={"Fotos do produto"}/>
+          <Input value={this.state.inputPhotos} onChange={this.handlePhotos} placeholder={"Urls das fotos separado por ,"}/>
           <Input
             min="1"
             max="12"
