@@ -122,6 +122,11 @@ class CreateAd extends React.Component {
     this.getProducts();
   };
 
+  createProductState =(body)=>{
+    const newProducts = [...this.state.products, body]
+    this.setState({products: newProducts})
+  }
+
   getProducts = () => {
     axios
       .get(
@@ -157,6 +162,7 @@ class CreateAd extends React.Component {
           inputPhotos: "",
           inputInstallments: "",
         });
+        this.createProductState(body)
         alert("Seu produto foi anunciado!");
       })
       .catch((err) => {
