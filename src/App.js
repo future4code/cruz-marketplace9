@@ -15,7 +15,7 @@ const DivContainer = styled.div`
 
 export default class App extends React.Component {
 	state={
-		page: 'ChoicePage'
+		page: 'SearchAd'
 	}
 
 
