@@ -1,4 +1,4 @@
-# Elo4 2
+# Elo4 
 
 ![logo-elo4](https://github.com/future4code/cruz-marketplace9/blob/master/src/img/logo.png)
 <br/>
