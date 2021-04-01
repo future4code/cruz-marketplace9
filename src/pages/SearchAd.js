@@ -26,6 +26,7 @@ const ContainerSecondary = styled.div`
    grid-row: 2/3;
    display: flex;
    margin-top: 10px;
+   height: calc(100vh - 90px);
 `
 const ContainerProducts = styled.div`
    width: 60%;
@@ -33,10 +34,8 @@ const ContainerProducts = styled.div`
    justify-content: space-evenly;
    flex-wrap: wrap;
    gap: 12px;
-   height: calc(100vh - 90px);
+   height: 100%;
    overflow: auto;
-   
-   
 `
 
 const Imagem = styled.img`
@@ -59,6 +58,14 @@ const BotaoVoltar = styled.button`
   :hover{
  cursor: pointer; 
 }
+`
+
+const ContainerCart = styled.div`
+   width: 20%;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   overflow: auto;
 `
 
 export default class SearchAd extends React.Component{
@@ -191,7 +198,7 @@ export default class SearchAd extends React.Component{
    //renderização do carrinho
    renderCart = ()=>{
       return (
-         <div>
+         <ContainerCart>
             <h3>Carrinho:</h3>
             {
                this.state.cartProducts.map((product)=>{
@@ -207,8 +214,8 @@ export default class SearchAd extends React.Component{
                   )
                })
             }
-            <p>Valor total da compra: R${this.reciveTotalValue()},00</p>
-         </div>
+            <p><b>Total: R${this.reciveTotalValue()},00</b></p>
+         </ContainerCart>
          )
    }
 

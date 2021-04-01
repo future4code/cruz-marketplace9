@@ -5,7 +5,9 @@ import styled from 'styled-components';
 const DivContainer = styled.div`
     margin-left: 10px;
     margin-bottom: 5px;
+    margin: 0 10px 5px 10px;
     padding: 0 10px;
+    width: 80%;
     display: flex;
     justify-content: space-between;
     align-items: center;
