@@ -11,7 +11,7 @@ export default class Cart extends React.Component {
             <div>
                 <p>{this.props.name}</p>
                 <p>{this.props.amount}x</p>
-                <p>{this.props.price}</p>
+                <p>R${this.props.price},00</p>
                 <button onClick={() => this.props.deleteCartProduct(this.props.id)}>
                     Remover item
                 </button>
