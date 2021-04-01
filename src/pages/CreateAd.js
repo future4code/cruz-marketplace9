@@ -261,7 +261,7 @@ class CreateAd extends React.Component {
             <option>Tricô</option>
             <option>Decoração</option>
             </Select>
-          <Input value={this.state.inputPhotos} onChange={this.handlePhotos} placeholder={"Fotos do produto"}/>
+          <Input value={this.state.inputPhotos} onChange={this.handlePhotos} placeholder={"Urls das fotos separado por ,"}/>
           <Input
             min="1"
             max="12"
