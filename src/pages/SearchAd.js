@@ -25,6 +25,7 @@ const Input = styled.input`
 const ContainerSecondary = styled.div`
    grid-row: 2/3;
    display: flex;
+   margin-top: 10px;
 `
 const ContainerProducts = styled.div`
    width: 60%;
@@ -32,8 +33,8 @@ const ContainerProducts = styled.div`
    justify-content: space-evenly;
    flex-wrap: wrap;
    gap: 12px;
-   height: 850px;
-   overflow: scroll;
+   height: calc(100vh-90px);
+   overflow: auto;
 `
 
 const Imagem = styled.img`
