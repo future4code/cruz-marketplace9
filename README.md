@@ -44,7 +44,7 @@ Este projeto possui integração a API privada.
 
 Projeto publicado no Surge:
 
-[Surge](http://elo4-marketplace.surge.sh)
+[Surge](http://elo4-marketplace.surge.sh) 
 
 ## Integrantes do grupo
 
