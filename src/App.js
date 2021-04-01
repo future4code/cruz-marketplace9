@@ -11,12 +11,12 @@ const DivContainer = styled.div`
 	width: 100vw;
 	margin: 0;
 	padding: 0;
-	height: 100vh;
+	min-height: 100vh;
 `
 
 export default class App extends React.Component {
 	state={
-		page: 'SearchAd'
+		page: 'ChoicePage'
 	}
 
 

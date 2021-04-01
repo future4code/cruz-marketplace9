@@ -36,8 +36,8 @@ const TextArea = styled.textarea`
 const DivProducts = styled.div`
   display:flex;
   flex-direction: column;
-  justify-content: center;
-
+  justify-content: flex-start;
+  height: max(calc(100vh - 545px), 350px);
 `;
 
 const DivDelete = styled.div`
