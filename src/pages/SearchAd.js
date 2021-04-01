@@ -78,6 +78,20 @@ export default class SearchAd extends React.Component{
 
    componentDidMount(){
       this.getProducts();
+      this.getLocalStorage();
+   }
+
+   getLocalStorage =()=>{
+      const newCart = window.localStorage.getItem('cartProducts')
+      if(newCart === null)return;
+      const newCartArray = JSON.parse(newCart)
+      this.setState({
+         cartProducts: newCartArray
+      })
+   }
+
+   setLocalStorage = (cart)=>{
+      window.localStorage.setItem('cartProducts', JSON.stringify(cart))
    }
 
    //API
@@ -120,6 +134,7 @@ export default class SearchAd extends React.Component{
             this.setState({
                cartProducts: newCartProducts
             })
+            this.setLocalStorage(newCartProducts);
             return
          }
       }
@@ -132,6 +147,7 @@ export default class SearchAd extends React.Component{
             this.setState({
                cartProducts: newCartProducts
             })
+            this.setLocalStorage(newCartProducts);
             return
          }
       }
@@ -150,6 +166,7 @@ export default class SearchAd extends React.Component{
       this.setState({
          cartProducts: newCartProducts
       })
+      this.setLocalStorage(newCartProducts);
    }
 
    filter = (productsFilteredInFilter)=>{
