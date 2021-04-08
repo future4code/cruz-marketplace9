@@ -1,68 +1,60 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Elo4 
 
-## Available Scripts
+![logo-elo4](https://github.com/future4code/cruz-marketplace9/blob/master/src/img/logo.png)
+<br/>
 
-In the project directory, you can run:
+![javascript-bagde](https://img.shields.io/github/languages/top/future4code/cruz-marketplace9)
+![PR-closed](https://img.shields.io/github/issues-pr-closed/future4code/cruz-marketplace9)
+![Json](https://img.shields.io/github/package-json/v/future4code/cruz-marketplace9)
 
-### `npm start`
+### Bem vindos!
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Projeto inspirado no marketplace [Elo7](https://www.elo7.com.br/), especializado em vendas de produtos artesanais.
+Este projeto possui integração a API privada.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
 
-### `npm test`
+## Sumário
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+  - [Tecnologias](#tecnologias)
+  - [Em funcionamento](#em-funcionamento)
+  - [Em construção ... 🚧](#em-construção--)
+  - [Publicação](#publicação)
+  - [Integrantes do grupo](#integrantes-do-grupo)
+  - [Agradecimentos](#agradecimentos)
 
-### `npm run build`
+## Tecnologias
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+[React JS](https://pt-br.reactjs.org/) - biblioteca JavaScript para criar interfaces de usuário.<br/>
+[Styled-components](https://styled-components.com/) -  permite CSS escrito diretamente no código para estilização de componentes do React JS.<br/>
+[Axios](https://axios-http.com/) - um cliente HTTP baseado em Promises para fazer requisições.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Em funcionamento
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Home com caminhos para compradores e fornecedores
+- Área compradores: exibição dos produtos para compra
+- Área fornecedores: cadastro de produtos
+- Carrinho de compras
+- Requisitos de filtro de preços e mercadorias
 
-### `npm run eject`
+## Em construção ... 🚧
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- Extras, além do projeto MVP
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Publicação
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Projeto publicado no Surge:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+[Surge](http://elo4-marketplace.surge.sh)
 
-## Learn More
+## Integrantes do grupo
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Allan de Sousa Silva
+- Fabiana Genila Ramos Pereira
+- Guilherme Henrique Mota Alfredo
+- João Vítor Alves de Mello Costa
+- Samuel Pires Mateus
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Agradecimentos
 
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Projeto desafiador que sem o auxílio dos colegas do grupo, seria um caminho muito mais difícil mas que tornou-se gratificador.<br/>
+Agradecimentos ao Samuel, ao João Vitor, ao Guilherme e ao Allan pela paciência e pela colaboração.<br/>
